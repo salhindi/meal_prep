@@ -10,12 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_231109) do
+ActiveRecord::Schema.define(version: 2021_04_20_231807) do
+
+  create_table "meals", force: :cascade do |t|
+    t.text "name"
+    t.string "ingredients"
+    t.text "meal_time"
+    t.string "photo"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.text "name"
     t.string "email"
     t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
