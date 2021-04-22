@@ -1,0 +1,15 @@
+<h1> Edit <%= @meal.name %>!
+<form action="/meals" method="post">
+    <label for="name"> What is this meal called? </label>
+        <input type="text" name="name" placeholder="<%= @meal.name %>">
+    <br><label for="meal_time"> Is this Breakfast, Lunch, or Dinner? </label>
+        <input type="text" name="meal_time" <%= @meal.meal_time %>>
+    <br><label for ="ingredients"> Ingredients: </label>
+        <input type="text" name="ingredients" <%= @meal.ingredients %>>
+    <br><label for="photo">Upload a Photo!</label>
+        <input type="text" name="photo" <%= @meal.photo %>>
+
+        <input type="submit" value="Edit Your Meal">
+</form>
+
+

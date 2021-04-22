@@ -28,7 +28,8 @@ class MealsController < ApplicationController
     end
 
     get '/meals/:id/edit' do 
-        "Yay"
+        @meal = Meal.find(params[:id])
+        erb :"meals/edit"
     end
 
 
