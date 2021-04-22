@@ -1,0 +1,11 @@
+<% @meals.each do |m| %>
+    <h5><%= m.meal_time %>  
+
+    <br><h6><%= m.name %></h6>
+
+    <p><%= m.ingredients %>
+
+
+<br>
+    <a href="meals/<%= m.id %>/edit"> Edit Meal</a>
+<% end %>
