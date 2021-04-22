@@ -7,5 +7,7 @@
 
 
 <br>
+<br><% if current_user == m.user %>
     <a href="meals/<%= m.id %>/edit"> Edit Meal</a>
+    <% end %>
 <% end %>

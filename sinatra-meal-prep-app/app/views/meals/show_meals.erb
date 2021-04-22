@@ -1,5 +1,7 @@
 
 <h2>Hello!</h2>
+
+
 <p>Here's your meals!</p>
     <h5><%= @meal.meal_time %>  
 
@@ -10,9 +12,10 @@
 
 <% if @meal.photo != "" %>
     <%= @meal.photo %>
-<% end %>
-<br>
-     <a href="<%= @meal.id %>/edit"> Edit Meal</a>
 
+<br><% if authorized_to_edit?(@meal) %>
+     <a href="<%= @meal.id %>/edit"> Edit Meal</a>
+     <% end %>
+<% end %>
 
 

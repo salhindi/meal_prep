@@ -29,7 +29,7 @@ class MealsController < ApplicationController
     get '/meals/:id/edit' do 
         set_meal
         if logged_in?
-            if @meal.user == current_user
+            if authorized_to_edit?(@meal)
                 erb :"/meals/edit"
             else
                 redirect "/users/#{current_user.id}"
@@ -42,7 +42,7 @@ class MealsController < ApplicationController
     patch '/meals/:id' do 
         set_meal
         if logged_in?
-            if @meal.user == current_user
+            if authorized_to_edit?(@meal)
                 @meal.update(name: params[:name], ingredients: params[:ingredients], meal_time: params[:meal_time], photo: params[:photo])
                 redirect "/meals/#{@meal.id}"
             else
