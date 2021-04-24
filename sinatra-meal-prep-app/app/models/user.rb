@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
 
     validates :name, presence: true
     validates :email, presence: true
-    validates :email, unique: true
+    validates :email, uniqueness: true
 
     has_many :meals
 end
