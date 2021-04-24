@@ -8,9 +8,14 @@
     <br><label for ="ingredients"> Ingredients: </label>
         <textarea name="ingredients" style="width:auto; height:auto;"><%= @meal.ingredients %></textarea>>
     
+    <% if @meal.photo != "" %>
         <p><img src="<%=@meal.photo %>">
 <br><h6><label for="photo"> A picture of your <%= @meal.name %>. </label></h6>
+<% end %>
         <input type="submit" value="Change Your Meal">
 </form>
 
-
+<form action="/meals/<%= @meal.id %>" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+</form>

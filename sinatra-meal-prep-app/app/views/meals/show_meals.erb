@@ -12,10 +12,15 @@
 
 <% if @meal.photo != "" %>
     <%= @meal.photo %>
-
+ <%end%>
 <br><% if authorized_to_edit?(@meal) %>
      <a href="<%= @meal.id %>/edit"> Edit Meal</a>
-     <% end %>
+    <br>
+     <form action="/meals/<%= @meal.id %>" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+     </form>
+    
 <% end %>
 
 

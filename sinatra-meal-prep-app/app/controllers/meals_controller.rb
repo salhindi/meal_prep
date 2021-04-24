@@ -42,14 +42,23 @@ class MealsController < ApplicationController
     patch '/meals/:id' do 
         set_meal
         if logged_in?
-            if authorized_to_edit?(@meal)
+            if authorized_to_edit?(@meal) && params[:name] != "" && params[:ingredients] != "" && params[:meal_time] != ""
                 @meal.update(name: params[:name], ingredients: params[:ingredients], meal_time: params[:meal_time], photo: params[:photo])
                 redirect "/meals/#{@meal.id}"
             else
                 redirect "/users/#{current_user.id}"
             end
+        end
+    end
+
+    delete '/meals/:id' do 
+        set_meal
+        if authorized_to_edit?(@meal)
+            @meal.destroy
+            flash[:message] = "Meal is gone!"
+            redirect '/meals'
         else
-            redirect '/'
+            redirect '/meals'
         end
     end
 

@@ -27,7 +27,7 @@ class ApplicationController < Sinatra::Base
         !!current_user
       end
 
-      def authorized_to_edit?(@meal) 
+      def authorized_to_edit?(meal) 
           @meal.user == current_user
       end
     end

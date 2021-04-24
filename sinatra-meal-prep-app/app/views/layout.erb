@@ -14,9 +14,11 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <div class="nav">
+    <% if logged_in? %>
     <a href="/logout">Logout</a>
     <a href="/meals/new">Create a Meal</a>
     <a href="/meals">Show Meals</a>
+    <% end %>
   </div>
   <body>
     <div class="wrapper">
