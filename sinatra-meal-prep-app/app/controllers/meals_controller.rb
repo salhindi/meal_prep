@@ -12,11 +12,14 @@ class MealsController < ApplicationController
     post '/meals' do
         if !logged_in? 
             redirect "/"
+            flash[:message]="Please login or signup."
             end
         if params[:name] != "" && params[:ingredients] != "" && params[:meal_time] != ""
+            flash[:message] = "New meal created."
             @meal = Meal.create(name: params[:name], ingredients: params[:ingredients], meal_time: params[:meal_time], user_id: current_user.id)
             redirect "/meals/#{@meal.id}"
         else
+            flash[:error] = "fill in all fields."
             redirect '/meals/new'
         end
     end
@@ -32,9 +35,11 @@ class MealsController < ApplicationController
             if authorized_to_edit?(@meal)
                 erb :"/meals/edit"
             else
+                flash[:error] = "That's not your meal, silly."
                 redirect "/users/#{current_user.id}"
             end
         else
+            flash[:error]="Login or Signup before creating a meal."
             redirect '/'
         end
     end
@@ -44,8 +49,10 @@ class MealsController < ApplicationController
         if logged_in?
             if authorized_to_edit?(@meal) && params[:name] != "" && params[:ingredients] != "" && params[:meal_time] != ""
                 @meal.update(name: params[:name], ingredients: params[:ingredients], meal_time: params[:meal_time], photo: params[:photo])
+                flash[:message]="Meal updated."
                 redirect "/meals/#{@meal.id}"
             else
+                flash[:error]="Failed: It's not your meal or a field was left empty."
                 redirect "/users/#{current_user.id}"
             end
         end
@@ -55,9 +62,10 @@ class MealsController < ApplicationController
         set_meal
         if authorized_to_edit?(@meal)
             @meal.destroy
-            flash[:message] = "Meal is gone!"
+            flash[:message]="Meal successfully removed."
             redirect '/meals'
         else
+            @flash[:error]
             redirect '/meals'
         end
     end

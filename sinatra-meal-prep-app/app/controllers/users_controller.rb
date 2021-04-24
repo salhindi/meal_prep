@@ -11,6 +11,7 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect "/users/#{@user.id}"
         else
+            flash[:error]="Invalid credentials. Try again."
             redirect '/login'
         end
     end
@@ -25,7 +26,7 @@ class UsersController < ApplicationController
            session[:user_id] = @user.id 
             redirect "/users/#{@user.id}"
         else
-           #invalid
+            flash[:error] = "One or more of the fields was empty."
            redirect '/signup'
         end
     end
