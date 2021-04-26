@@ -1,20 +1,15 @@
 
-<h2>Hello!</h2>
-
-
-<% @meals.each do |m| %>
-
-<option value=<%= m.id %>><%= m.name %></option>
-<% end %>
-
-<p><%= @meal.name %></p>
+<h3><%= @meal.name %></h3>
 <p><%= @meal.meal_time %>  </p>
-<p><%= @meal.ingredients %></p>
+<p>What's in the meal?
+<br><%= @meal.ingredients %></p>
 
-
-<% if @meal.photo != "" %>
-    <%= @meal.photo %>
- <%end%>
+<!--
+ <% if @meal.photo != "" %>
+        <p><img src="<%=@meal.photo %>">
+<br><h6><label for="photo"> A picture of your <%= @meal.name %>. </label></h6>
+<% end %>
+--> 
 <br><% if authorized_to_edit?(@meal) %>
      <a href="<%= @meal.id %>/edit"> Edit Meal</a>
     <br>
