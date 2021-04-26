@@ -21,12 +21,15 @@ class UsersController < ApplicationController
     end
 
     post "/users" do
-        if params[:name] != "" && params[:email] != "" && params[:password] != ""
-            @user = User.create(params)
+        @user = User.new(params)
+        if @user.save
+        # if params[:name] != "" && params[:email] != "" && params[:password] != ""
+        #     @user = User.create(params)
            session[:user_id] = @user.id 
+           flash[:message]="Welcome, #{@user.name}! You're ready to begin meal planning!"
             redirect "/users/#{@user.id}"
         else
-            flash[:error] = "One or more of the fields was empty."
+            flash[:error] = "You're missing something! #{@user.errors.full_messages.to_sentence}."
            redirect '/signup'
         end
     end

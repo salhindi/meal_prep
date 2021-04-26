@@ -1,6 +1,23 @@
-hello!
--List user meals
--organize by date
 <% if flash[:message] %>
     <%= flash[:message] %>
 <%end%>
+Hi, <%= @user.name %>.
+Here's a history of your meal prep:
+<% @user.meals.each do |m| %>
+    <br><br>
+    <br><%= m.meal_time %>
+    <br><%= m.name %>
+    <br><%= m.ingredients %>
+    
+    <br><%= m.created_at.strftime("%Y-%m-%d") %>
+    
+    <br><br>
+       <% if current_user == m.user %>
+        <a href="meals/<%= m.id %>/edit"> Edit Meal</a>
+        <% end %>
+        <br>
+        <form action="/meals/<%= m.id %>" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete">
+</form>
+<% end %>

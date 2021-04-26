@@ -16,9 +16,10 @@
   <body>
   <div class="nav">
     <% if logged_in? %>
+      <a href="/meals/new">Create a Meal</a><br>
+      <a href="/meals">Show Meals</a><br>
+      <a href="/users/<%= current_user.id%>">My Meals</a><br>
       <a href="/logout">Logout</a>
-      <a href="/meals/new">Create a Meal</a>
-      <a href="/meals">Show Meals</a>
     <% end %>
   </div>
   
