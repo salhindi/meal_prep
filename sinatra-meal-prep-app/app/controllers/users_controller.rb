@@ -26,7 +26,6 @@ class UsersController < ApplicationController
         # if params[:name] != "" && params[:email] != "" && params[:password] != ""
         #     @user = User.create(params)
            session[:user_id] = @user.id 
-           flash[:message]="Welcome, #{@user.name}! You're ready to begin meal planning!"
             redirect "/users/#{@user.id}"
         else
             flash[:error] = "You're missing something! #{@user.errors.full_messages.to_sentence}."

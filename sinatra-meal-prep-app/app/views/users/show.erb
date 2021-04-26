@@ -2,6 +2,7 @@
     <%= flash[:message] %>
 <%end%>
 Hi, <%= @user.name %>.
+
 Here's a history of your meal prep:
 <% @user.meals.each do |m| %>
     <br><br>
