@@ -1,5 +1,3 @@
-Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
-
 This is a Sinatra-ActiveRecord Meal Prep App you can store your meal prep ideas
 and photos, and share meal preps with other users.
 
