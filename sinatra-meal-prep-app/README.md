@@ -1,7 +1,7 @@
 This is a Sinatra-ActiveRecord Meal Prep App you can store your meal prep ideas
 and photos, and share meal preps with other users.
 
-Install: Instructions
+Install Instructions:
 To install the app, clone the repository into your environment, open the folder, and type "bundle install" into your terminal. 
 
 
