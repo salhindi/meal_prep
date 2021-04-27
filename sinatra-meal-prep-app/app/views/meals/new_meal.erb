@@ -1,13 +1,18 @@
 <h2>Create a Meal!</h2>
 <form action="/meals" method="post">
-    <br><br><label for="name"> What is this meal called? </label>
+    <br><label for="name"> What is this meal called? </label>
         <input type="text" name="name">
-    <br><label for="meal_time"> Is this Breakfast, Lunch, or Dinner? </label>
-        <input type="text" name="meal_time">
+    <br><label for="meal_time"> When will you have this meal? </label>
+        <input type="checkbox" name="meal_time" value="breakfast">Breakfast 
+        <input type="checkbox" name="meal_time" value="lunch">Lunch
+        <input type="checkbox" name="meal_time" value="dinner">Dinner
     <br><label for ="ingredients"> Ingredients: </label>
         <input type="text" name="ingredients">
+
+        <!--
     <br><label for="photo">Upload a Photo!</label>
         <input type="text" name="photo">
+        -->
 
     <br>    <input type="submit" value="Create Your Meal">
 </form>

@@ -1,18 +1,15 @@
-<% if flash[:message] %>
-    <%= flash[:message] %>
-<% end %>
-
 Checkout everyone's meals.
 
 <br><br>
 
 <% @meals.each do |m| %>
-    <br><%= m.meal_time %>  
-    <br><%= m.name %>
-    <br><%= m.ingredients %>
-    <h4><br>By: <%= m.user.name %></h4>
+    <%= m.name.capitalize %> for <%= m.meal_time.capitalize %>.  
+    
+    <br>Items involved: <%= m.ingredients %>
+    <h4><br>By: <%= m.user.name.capitalize %></h4>
 <br>
     <% if current_user == m.user %>
         <a href="meals/<%= m.id %>/edit"> Edit Meal</a>
         <% end %>
     <% end %>
+    <br>

@@ -1,24 +1,28 @@
-<% if flash[:message] %>
-    <%= flash[:message] %>
-<%end%>
-Hi, <%= @user.name %>.
+<h2>Hi, <%= @user.name %>.</h2><br>
 
-Here's a history of your meal prep:
-<% @user.meals.each do |m| %>
+<% if @user.meals.empty? %>
+<br>Your meals history is currently empty. 
+<br>
+    <a href="/meals/new">Create a Meal</a><br>
+    <a href="/meals">Check out other user meals.</a>
+<% else %>
+    Here's a history of your meal prep:
+    <% @user.meals.each do |m| %>
     <br><br>
-    <br><%= m.meal_time %>
-    <br><%= m.name %>
-    <br><%= m.ingredients %>
+        <br><b><%= m.name.capitalize %> for <%= m.meal_time.capitalize %>.</b>
+        <br>
+        <br>Items required: <%= m.ingredients %>
     
-    <br><%= m.created_at.strftime("%Y-%m-%d") %>
+        <br><%= m.created_at.strftime("%m-%d-%Y") %>
     
     <br><br>
        <% if current_user == m.user %>
-        <a href="meals/<%= m.id %>/edit"> Edit Meal</a>
+        <a href="/meals/<%= m.id %>/edit"> Edit Meal</a>
         <% end %>
         <br>
         <form action="/meals/<%= m.id %>" method="post">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete">
-</form>
+            <input type="hidden" name="_method" value="DELETE">
+            <input type="submit" value="Delete">
+        </form>
+    <% end %>
 <% end %>

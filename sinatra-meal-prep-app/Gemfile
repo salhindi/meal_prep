@@ -12,6 +12,7 @@ gem 'pry'
 gem 'bcrypt'
 gem 'tux'
 gem 'sinatra-flash', '~> 0.3.0'
+gem 'calendar_helper', '~> 0.2.6'
 
 group :test do
   gem 'rspec'

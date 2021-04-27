@@ -1,15 +1,19 @@
 
-<h3><%= @meal.name %></h3>
-<p><%= @meal.meal_time %>  </p>
-<p>What's in the meal?
-<br><%= @meal.ingredients %></p>
-
+<h3><%= @meal.name.capitalize %> for <%= @meal.meal_time.capitalize %>  </p></h3>
+<p>What you need:
+<br><%= @meal.ingredients %>
+<!--
+display meal under specific day based on button selected
+-->
+<!-- has forms for buttons with different days for action to post under sunday in meal_week view
+if breakfast, list under breakfast.. etc-->
 <!--
  <% if @meal.photo != "" %>
         <p><img src="<%=@meal.photo %>">
 <br><h6><label for="photo"> A picture of your <%= @meal.name %>. </label></h6>
 <% end %>
 --> 
+<br>
 <br><% if authorized_to_edit?(@meal) %>
      <a href="<%= @meal.id %>/edit"> Edit Meal</a>
     <br>

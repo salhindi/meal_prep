@@ -16,18 +16,22 @@
   <body>
   <div class="nav">
     <% if logged_in? %>
-      <a href="/meals/new">Create a Meal</a><br>
+       <a href="/">Homepage</a><br>
+       <a href="/meals/new">Create a Meal</a><br>
       <a href="/meals">Show Meals</a><br>
       <a href="/users/<%= current_user.id%>">My Meals</a><br>
       <a href="/logout">Logout</a>
     <% end %>
   </div>
-  
+
+       
+    
 
   
     
    
     <div class="wrapper">
+  
 
 
         <%= yield %>  
@@ -46,6 +50,9 @@
         <%= flash[:error] %></h3>
       </div>
     <%end%>
+   
+  
+  
       <footer class="branding">
         <small>&copy; 2021 <strong>SinatraMealPrepApp</strong></small>
       </footer>
