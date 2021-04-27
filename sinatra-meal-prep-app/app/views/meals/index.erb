@@ -1,15 +1,14 @@
-Checkout everyone's meals.
+<h2>Checkout everyone's meals.</h2>
 
-<br><br>
 
 <% @meals.each do |m| %>
-    <%= m.name.capitalize %> for <%= m.meal_time.capitalize %>.  
+    <br><br><%= m.name.capitalize %> for <%= m.meal_time.capitalize %>.  
     
     <br>Items involved: <%= m.ingredients %>
     <h4><br>By: <%= m.user.name.capitalize %></h4>
-<br>
     <% if current_user == m.user %>
         <a href="meals/<%= m.id %>/edit"> Edit Meal</a>
+        <br>
         <% end %>
     <% end %>
-    <br>
+<br>
