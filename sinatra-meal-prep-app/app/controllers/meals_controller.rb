@@ -2,7 +2,7 @@ class MealsController < ApplicationController
 
     get '/meals' do
         @meals = Meal.all
- 
+        # @meals = Meal.where(user_id: 1)
         erb :'meals/index'
     end
 

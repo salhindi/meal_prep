@@ -14,6 +14,7 @@ gem 'tux'
 gem 'sinatra-flash', '~> 0.3.0'
 gem 'calendar_helper', '~> 0.2.6'
 gem 'sysrandom', '~> 1.0', '>= 1.0.5'
+gem 'dotenv', '~> 2.1', '>= 2.1.1'
 
 gem 'rspec'
 gem 'capybara'

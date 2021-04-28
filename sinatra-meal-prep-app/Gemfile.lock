@@ -42,6 +42,7 @@ GEM
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     diff-lcs (1.4.4)
+    dotenv (2.7.6)
     eventmachine (1.2.7)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
@@ -129,6 +130,7 @@ DEPENDENCIES
   calendar_helper (~> 0.2.6)
   capybara
   database_cleaner!
+  dotenv (~> 2.1, >= 2.1.1)
   pry
   rack-test
   rake
