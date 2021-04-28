@@ -1,0 +1,12 @@
+Hey, <% @current_user.name %>!
+    <br> Meals created so far: <%= @current_user.meals.count %>
+    
+        <% @current_user.meals.each do |m| %>
+            <ul>
+                <li><%= m.name.capitalize %></li>
+            </ul>
+        <% end %>
+
+
+
+

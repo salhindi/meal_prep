@@ -12,11 +12,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    # if logged_in?
-    #   erb :homepage
-    # else
-    erb :welcome
-    # end
+    if logged_in?
+      erb :'users/index'
+    else
+      erb :welcome
+    end
   end
 
   helpers do 

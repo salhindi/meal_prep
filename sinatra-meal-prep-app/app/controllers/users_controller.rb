@@ -20,11 +20,14 @@ class UsersController < ApplicationController
         erb :'registrations/signup'
     end
 
+    get '/users' do 
+        current_user
+        erb :index
+    end
+
     post "/users" do
         @user = User.new(params)
         if @user.save
-        # if params[:name] != "" && params[:email] != "" && params[:password] != ""
-        #     @user = User.create(params)
            session[:user_id] = @user.id 
             redirect "/users/#{@user.id}"
         else
