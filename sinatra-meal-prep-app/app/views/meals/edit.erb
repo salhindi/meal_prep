@@ -4,7 +4,7 @@
         <label for="name"> What is this meal called? </label>
                 <input type="text" name="name" value="<%= @meal.name %>">
         <br><label for="meal_time"> When will you have this meal? </label>
-                <input type="text" name="meal_time">
+                <input type="text" name="meal_time" value="<%= @meal.meal_time %>">
                         <!--
                         <input type="checkbox" name="meal_time" value="breakfast">Breakfast 
                         <input type="checkbox" name="meal_time" value="lunch">Lunch
@@ -18,11 +18,14 @@
                 <br><h6><label for="photo"> A picture of your <%= @meal.name %>. </label></h6>
                         <% end %>
                         -->
-                <br>
+                <br><br>
                 <input type="submit" value="Change Your Meal">
+                <br><br>
         </form>
 
-<form action="/meals/<%= @meal.id %>" method="post">
+<form onsubmit="return confirm('Are you sure you want to delete the following note?')" action="/meals/<%= @meal.id %>" method="post">
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Delete">
 </form>
+<br><br>
+<a href="/users/<%= current_user.id %>"> Change your mind? Go back. </a>

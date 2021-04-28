@@ -20,10 +20,11 @@
                          <% if current_user == m.user %>
                              <a href="/meals/<%= m.id %>/edit"> Edit Meal</a>
                          <% end %>
-                    <br>
-                <form action="/meals/<%= m.id %>" method="post">
+                    <br><br>
+                <form onsubmit="return confirm('Are you sure you want to delete the following note?')"action="/meals/<%= m.id %>" method="post">
                     <input type="hidden" name="_method" value="DELETE">
                     <input type="submit" value="Delete">
                 </form>
             <% end %>
     <% end %>
+   
