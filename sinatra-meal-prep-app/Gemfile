@@ -14,9 +14,8 @@ gem 'tux'
 gem 'sinatra-flash', '~> 0.3.0'
 gem 'calendar_helper', '~> 0.2.6'
 
-group :test do
-  gem 'rspec'
-  gem 'capybara'
-  gem 'rack-test'
-  gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
-end
+gem 'rspec'
+gem 'capybara'
+gem 'rack-test'
+gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+
