@@ -1,25 +1,30 @@
-<h1> Edit <%= @meal.name %>! </h1>
-<form action="/meals/<%= @meal.id %>" method="post">
-    <input type="hidden" name="_method" value="patch">
-    <label for="name"> What is this meal called? </label>
-        <input type="text" name="name" value="<%= @meal.name %>">
-      <br><label for="meal_time"> When will you have this meal? </label>
-        <input type="checkbox" name="meal_time" value="breakfast">Breakfast 
-        <input type="checkbox" name="meal_time" value="lunch">Lunch
-        <input type="checkbox" name="meal_time" value="dinner">Dinner
-    <br><label for ="ingredients"> Ingredients: </label>
-        <textarea name="ingredients" style="width:auto; height:auto;"><%= @meal.ingredients %></textarea>
-    
- <!--   <% if @meal.photo != "" %>
-        <p><img src="<%=@meal.photo %>">
-<br><h6><label for="photo"> A picture of your <%= @meal.name %>. </label></h6>
-<% end %>
--->
-<br>
-        <input type="submit" value="Change Your Meal">
-</form>
+<!DOCTYPE html> 
+        <h1> Edit <%= @meal.name %>! </h1>
+                <form action="/meals/<%= @meal.id %>" method="post">
+                        <input type="hidden" name="_method" value="patch">
+                <label for="name"> What is this meal called? </label>
+                        <input type="text" name="name" value="<%= @meal.name %>">
+                <br><label for="meal_time"> When will you have this meal? </label>
+                        <input type="text" name="meal_time">
+                        <!--
+                        <input type="checkbox" name="meal_time" value="breakfast">Breakfast 
+                        <input type="checkbox" name="meal_time" value="lunch">Lunch
+                        <input type="checkbox" name="meal_time" value="dinner">Dinner
+                        -->
+                <br><label for ="ingredients"> Ingredients: </label>
+                        <textarea name="ingredients" style="width:auto; height:auto;"><%= @meal.ingredients %></textarea>
+                        <!--   
+                        <% if @meal.photo != "" %>
+                        <p><img src="<%=@meal.photo %>">
+                <br><h6><label for="photo"> A picture of your <%= @meal.name %>. </label></h6>
+                        <% end %>
+                        -->
+                        <br>
+                        <input type="submit" value="Change Your Meal">
+                </form>
 
-<form action="/meals/<%= @meal.id %>" method="post">
-        <input type="hidden" name="_method" value="DELETE">
-        <input type="submit" value="Delete">
-</form>
+                <form action="/meals/<%= @meal.id %>" method="post">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="submit" value="Delete">
+                </form>
+</html>

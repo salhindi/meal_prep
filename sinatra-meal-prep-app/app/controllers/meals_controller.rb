@@ -2,6 +2,7 @@ class MealsController < ApplicationController
 
     get '/meals' do
         @meals = Meal.all
+ 
         erb :'meals/index'
     end
 
@@ -19,7 +20,7 @@ class MealsController < ApplicationController
             @meal = Meal.create(name: params[:name], ingredients: params[:ingredients], meal_time: params[:meal_time], user_id: current_user.id)
             redirect "/meals/#{@meal.id}"
         else
-            flash[:error] = "fill in all fields."
+            flash[:error] = "Fill in all fields."
             redirect '/meals/new'
         end
     end
@@ -47,7 +48,7 @@ class MealsController < ApplicationController
     patch '/meals/:id' do 
         set_meal
         if logged_in?
-            if authorized_to_edit?(@meal) && params[:name] != "" && params[:ingredients] != "" && params[:meal_time] != ""
+            if authorized_to_edit?(@meal) && params[:name] != "" && params[:ingredients] != "" && params[:meal_time]
                 @meal.update(name: params[:name], ingredients: params[:ingredients], meal_time: params[:meal_time], photo: params[:photo])
                 flash[:message]="Meal updated."
                 redirect "/meals/#{@meal.id}"
@@ -63,10 +64,10 @@ class MealsController < ApplicationController
         if authorized_to_edit?(@meal)
             @meal.destroy
             flash[:message]="Meal successfully removed."
-            redirect '/meals'
+            redirect "/users/#{current_user.id}"
         else
-            @flash[:error]
-            redirect '/meals'
+            @flash[:error] = "That's not yours to remove."
+            redirect "/meals"
         end
     end
 
