@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
       end
 
       def logged_in?
-        !!current_user
+        current_user != nil
       end
 
       def authorized_to_edit?(meal) 
