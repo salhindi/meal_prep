@@ -1,9 +1,16 @@
-Hey, <% @current_user.name %>!
-    <br> Meals created so far: <%= @current_user.meals.count %>
+<h2>Hey, <%= @current_user.name %>!</h2>
+    Meals created so far: <%= @current_user.meals.count %>
+    <br>
     
         <% @current_user.meals.each do |m| %>
             <ul>
-                <li><%= m.name.capitalize %></li>
+                <li><%= m.name.capitalize %> 
+                    <% if current_user == m.user %>
+                        <a href="/meals/<%= m.id %>"> View Meal </a>
+                    <% end %> 
+                    <br>
+                </li>
+                         
             </ul>
         <% end %>
 
